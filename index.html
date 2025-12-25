@@ -1,0 +1,136 @@
+export default {
+  async fetch(request) {
+    return new Response(html, {
+      headers: {
+        'content-type': 'text/html;charset=UTF-8',
+      },
+    });
+  },
+};
+
+const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Are Those Old Dreams Doing?!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      color: #333;
+      line-height: 1.8;
+      padding: 2rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      text-align: center;
+      color: #ff5e57;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 1.2s ease;
+    }
+
+    .emoji {
+      font-size: 1.5rem;
+      margin: 0 0.2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.8s ease;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 4s infinite ease-in-out;
+      opacity: 0.6;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50%      { opacity: 1; transform: scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <div class="container">
+    <h1>🌸🌞✨ How Are Those Old Dreams Doing?! ✨🌿⭐</h1>
+    <p>The night is quiet, broken only by the occasional distant hum of a car, briefly pulling me back to reality from the jumble of my thoughts. My fingertips hesitate over the keyboard, typing out these words that carry a hint of inquiry, a touch of nostalgia, and even a sliver of apprehension – <strong>How are those old dreams doing?!</strong></p>
+
+    <p>They are like glass marbles carefully collected and stored away. With the passage of years, perhaps they’ve gathered a bit of dust, or feel somewhat unfamiliar from lack of handling. But whenever I accidentally touch them, that once-fiery light still flickers in some corner of my heart, reminding me that there was once a world brimming with vibrant colors.</p>
+
+    <p>🌊 Do you remember? That resolute dream of owning a small seaside café, waking up every morning to the sound of waves, the aroma of grinding coffee beans filling the air, spending afternoons watching the tide rise and fall in a rocking chair, and chatting with close friends under the starry sky at night...</p>
+
+    <p>🎨 Or, that dream of becoming a painter, using the brush in your hand to depict the world you saw, splashing the colors in your heart onto the canvas...</p>
+
+    <p>🌍 And then there was that dream of traveling the world, packing your bags, exploring unknown lands, experiencing different cultures, and embracing all kinds of scenery...</p>
+
+    <p>We were all once teenagers filled with dreams, our eyes sparkling with boundless anticipation for the future. Those dreams were like tender shoots breaking through the soil, full of vitality and hope...</p>
+
+    <p>🌿 However, the trajectory of life often takes unexpected turns. The torrent of time carries us forward, and the weight of reality gradually presses down on our shoulders...</p>
+
+    <p>☕ Perhaps, those old dreams haven’t disappeared, but exist in a different form... in a weekend coffee ritual, a short trip, or a quiet moment of reflection.</p>
+
+    <p>✨ So, at this moment, please take a moment, pause in your busy life, and gently ask your old dreams: <strong>“Hey, old friends, how are you doing?!”</strong></p>
+
+    <p>Regardless of the answer, please remember that those old dreams are precious imprints in our lives. They shaped us, guided us, and made us who we are today. And in the future, perhaps we can once again give new dreams wings and fly bravely. 🌈🕊️</p>
+  </div>
+
+  <script>
+    const starCount = 40;
+    const starsContainer = document.getElementById('stars');
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (2 + Math.random() * 3) + 's';
+      star.style.width = star.style.height = (2 + Math.random() * 4) + 'px';
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>`;
